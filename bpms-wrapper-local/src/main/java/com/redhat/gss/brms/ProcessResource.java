@@ -13,7 +13,7 @@ import javax.ws.rs.core.Response;
 import org.kie.api.runtime.KieSession;
 import org.kie.api.runtime.process.ProcessInstance;
 
-@Path("/")
+@Path("/process/")
 public class ProcessResource {
 
 	@Inject
@@ -28,7 +28,7 @@ public class ProcessResource {
 
 	// TODO: Add support for process parameters
 	@POST
-	@Path("/process/{processId}/start")
+	@Path("{processId}/start")
 	public Response startProcess(@PathParam("processId") String processId) {
 		KieSession kieSession = factory.getKieContainer(groupId, artifactId,
 				version).newKieSession();
